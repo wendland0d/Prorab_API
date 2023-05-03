@@ -8,7 +8,7 @@ services:
     container_name: postgres_db
     environment:
       - POSTGRES_USER=admin
-      - POSTGRES_PASS=admin
+      - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=prorab
       - POSTGRES_PORT=5432
     ports:
