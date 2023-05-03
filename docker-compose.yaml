@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  db:
+    restart: on-failure
+    image: postgres
+    container_name: postgres_db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASS=admin
+      - POSTGRES_DB=prorab
+      - POSTGRES_PORT=5432
+    ports:
+      - 5432:5432
+  
+  api:
+    restart: on-failure
+    build: api/
+    
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    
